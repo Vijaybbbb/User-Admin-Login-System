@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <link rel="stylesheet" href="/AdminDash.css" type="text/css">
+</head>
+<body>
+       
+       <h2>Welcome Cheif</h2>
+       <button><a href="/admin/adminLogout">Logout</a></button>
+<button><a href="/admin/addnewUser">Add New User</a></button>
+<form action="/admin/adminDash" method="get">
+    <input type="text" placeholder="Search" name="search" id="Search" value="<%= search %>">
+    <button type="submit">Search</button>
+</form>
+
+       <table>
+              <tr>
+                  <th>First name</th>
+                  <th>Second name</th>
+                  <th>Email</th>
+                  <th>Action</th>
+              </tr>
+          
+              <% if (users.length > 0) { %>
+                  <% for (let i = 0; i < users.length; i++) { %>
+                      <tr>
+                          <td><%= users[i].fname %></td>
+                          <td><%= users[i].sname %></td>
+                          <td><%= users[i].email %></td>
+                          <td><button><a href="/admin/edituser?id=<%=users[i]._id %>">Edit</a></button></td>
+                      </tr>
+                  <% } %>
+              <% } else { %>
+                  <tr>
+                      <td colspan="4">Users Not Found</td>
+                  </tr>
+              <% } %>
+          </table>
+       
+
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <link rel="stylesheet" href="/adduser.css" type="text/css">
+</head>
+<body>
+       <h1>Edit User Details</h1><br>
+       <form method="post" action="/admin/modifyuser">
+              <input type="text" name="fname" placeholder="First Name"  required="required" value="<%= users.fname %>"/><br><br>
+              <input type="text" name="sname" placeholder="Second Name"  required="required"  value="<%= users.sname %>"/><br><br>
+              <input type="email" name="email" placeholder="Email"  required="required"  value="<%= users.email %>"/><br><br>
+              <input type="password" name="password" placeholder="Password"  required="required"  value="<%= users.password %>"/><br><br>
+              <input type="hidden" name="id" value="<%= users._id %>">
+              <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button><br>
+              
+              
+              <button type="button" onclick="deleteAndGoBack('<%= users._id  %> ','<%= users.email %>')">Delete User </button><br>
+   
+
+              <script>
+                      function deleteAndGoBack(userId) {
+                      window.location.href = `/admin/deleteuser?id=${userId}`;
+                     //  window.location.href = `/user?email=${userEmail}`;
+                     
+                      }
+              </script>
+      
+               <button><a href="/admin/adminDash">Back</a></button>
+          </form>
+</body>
+</html>

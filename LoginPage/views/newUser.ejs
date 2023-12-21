@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <link rel="stylesheet" href="/adduser.css" type="text/css">
+</head>
+<body>
+       <h1>Add new User</h1><br>
+       <form method="post" action="/admin/adminAdd">
+              <input type="text" name="fname" placeholder="First Name"  required="required" /><br><br>
+              <input type="text" name="sname" placeholder="Second Name"  required="required" /><br><br>
+              <input type="email" name="email" placeholder="Email"  required="required" /><br><br>
+              <input type="password" name="password" placeholder="Password"  required="required" /><br><br>
+              <label for="" class="err"><%= locals.message ? message : "" %></label>
+              <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button><br>
+              <button><a href="/admin/adminDash">Back</a></button>
+
+          </form>
+</body>
+</html>
